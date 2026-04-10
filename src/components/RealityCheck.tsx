@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export const RealityCheck = () => {
   return (
@@ -20,19 +21,39 @@ export const RealityCheck = () => {
             transition={{ duration: 1.5, ease: [0.32, 0.72, 0, 1] }}
           >
             <h2 style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: '1.2', marginBottom: '3rem' }}>
-              We know the exhaustion. <br />
-              <span style={{ color: '#F7B42C' }}>We know the quiet victories.</span>
+              Where families <br />
+              <span style={{ color: '#F7B42C' }}>find clarity.</span>
             </h2>
             
             <p style={{ 
-              fontSize: '1.5rem', 
-              fontStyle: 'italic', 
-              color: '#666', 
+              fontSize: '1.4rem', 
+              color: '#323030', 
               fontFamily: 'Lora',
-              lineHeight: '1.8'
+              lineHeight: '1.8',
+              maxWidth: '800px',
+              margin: '0 auto 3rem'
             }}>
-              "The diagnostic journey for autism in Nepal has been marked by long waits, fragmented care, and unaddressed questions. SIA is the answer we needed—a single point of excellence where families are seen, heard, and held."
+              Autism can often feel overwhelming — too much information, too many opinions, and not enough clear direction. At Sunflower, we focus on what matters most: understanding each individual, supporting families, and creating practical, structured pathways forward.
             </p>
+
+            <p style={{ fontSize: '1.1rem', color: '#666', fontWeight: 600, marginBottom: '4rem' }}>
+              No judgment. No confusion. Just clarity, care, and a community that understands.
+            </p>
+
+            <Link href="/about">
+              <button style={{
+                backgroundColor: '#323030',
+                color: 'white',
+                padding: '1.25rem 3rem',
+                borderRadius: '100px',
+                fontWeight: 800,
+                fontSize: '0.85rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em'
+              }}>
+                Learn More About Us
+              </button>
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
 
 export const HomeHero = () => {
   return (
@@ -42,10 +43,10 @@ export const HomeHero = () => {
               Agency of Excellence
             </div>
             
-            <h1 style={{ marginBottom: '3rem', fontSize: 'clamp(3rem, 6vw, 5.5rem)', lineHeight: '1.05' }}>
-              A clear pathway <br />
+            <h1 style={{ marginBottom: '2.5rem', fontSize: 'clamp(3rem, 6vw, 5.5rem)', lineHeight: '1.05' }}>
+              Nepal’s Home for <br />
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem' }}>
-                for 
+                <span style={{ color: '#F7B42C' }}>Autism Care.</span>
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: 80 }}
@@ -62,50 +63,76 @@ export const HomeHero = () => {
                   }}
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1594495894542-a4a1200e9e13?auto=format&fit=crop&q=80&w=200" 
+                    src="/hero.png" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                   />
                 </motion.div>
-                your child.
-              </div> <br />
-              <span style={{ color: '#F7B42C' }}>A safe sanctuary.</span>
+              </div>
             </h1>
             
-            <p style={{ 
-              fontSize: '1.2rem', 
-              lineHeight: '1.7', 
-              color: '#555', 
-              maxWidth: '500px',
-              marginBottom: '4rem'
+            <div style={{ 
+              color: '#323030', 
+              fontSize: '1.4rem', 
+              fontWeight: 600, 
+              marginBottom: '1.5rem',
+              lineHeight: '1.4'
             }}>
-              We are building a holistic Center of Excellence—integrating therapy, research, and community support into a single, unhurried digital sanctuary.
+              Clarity, care, and community — <br />
+              <span style={{ color: '#666' }}>for individuals with autism and hidden disabilities.</span>
+            </div>
+            
+            <p style={{ 
+              fontSize: '1.1rem', 
+              lineHeight: '1.8', 
+              color: '#666', 
+              maxWidth: '580px',
+              marginBottom: '4rem',
+              fontWeight: 400
+            }}>
+              From assessments and therapy to training and community support, Sunflower brings everything together — so families and professionals can move forward with confidence.
             </p>
             
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1, duration: 1, ease: [0.32, 0.72, 0, 1] }}
+              style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}
             >
-               <button style={{
-                  backgroundColor: '#323030',
-                  color: '#F5F5F5',
-                  padding: '1.25rem 3rem',
-                  borderRadius: '100px',
-                  fontSize: '0.85rem',
-                  fontWeight: 800,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '1rem',
-                  boxShadow: '0 20px 40px -10px rgba(0,0,0,0.2)',
-                  transition: 'all 0.3s ease'
-               }} className="cta-button">
-                  Enter Ecosystem
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <ArrowDown size={16} />
-                  </div>
-               </button>
+               <Link href="/contact">
+                 <button style={{
+                    backgroundColor: '#323030',
+                    color: '#F5F5F5',
+                    padding: '1.25rem 3rem',
+                    borderRadius: '100px',
+                    fontSize: '0.85rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    boxShadow: '0 20px 40px -10px rgba(50, 48, 48, 0.2)',
+                    transition: 'all 0.3s ease'
+                 }} className="cta-primary">
+                    Get Support
+                 </button>
+               </Link>
+               <Link href="/services">
+                 <button style={{
+                    backgroundColor: 'transparent',
+                    color: '#323030',
+                    padding: '1.25rem 3rem',
+                    borderRadius: '100px',
+                    fontSize: '0.85rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    border: '2px solid rgba(50, 48, 48, 0.1)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.75rem',
+                    transition: 'all 0.3s ease'
+                 }} className="cta-secondary">
+                    Explore Services <ArrowUpRight size={18} />
+                 </button>
+               </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -121,7 +148,7 @@ export const HomeHero = () => {
              style={{ position: 'absolute', top: '10%', right: '0', width: '100%', zIndex: 1 }}
            >
               <div className="bezel-inner" style={{ padding: 0, overflow: 'hidden' }}>
-                <img src="https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?auto=format&fit=crop&q=80&w=1200" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                <img src="/hero.png" style={{ width: '100%', height: 'auto', display: 'block' }} />
               </div>
            </motion.div>
            

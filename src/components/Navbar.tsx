@@ -18,10 +18,12 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'About Us', href: '/about' },
-    { name: 'Ecosystem', href: '/ecosystem' },
-    { name: 'Insights', href: '/news' },
-    { name: 'Get Involved', href: '/get-involved' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Events', href: '/events' },
+    { name: 'Resources', href: '/resources' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -76,7 +78,7 @@ export const Navbar = () => {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Link href="/get-involved">
+          <Link href="/contact">
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -94,7 +96,7 @@ export const Navbar = () => {
                 gap: '0.5rem'
               }}
             >
-              Support
+              Get Support
               <div style={{ 
                 width: '24px', 
                 height: '24px', 

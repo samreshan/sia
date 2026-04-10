@@ -17,9 +17,10 @@ export const Footer = () => {
       }}>
         {/* Brand & Vision */}
         <div>
-          <h2 style={{ fontFamily: 'Lora', color: '#F7B42C', marginBottom: '2rem', fontSize: '2rem' }}>SIA</h2>
-          <p style={{ color: 'rgba(245, 245, 245, 0.6)', lineHeight: '1.8', fontSize: '1rem', maxWidth: '300px' }}>
-            Establishing Nepal's first Center of Excellence for Autism Care. A choreographed sanctuary for human flourishing.
+          <h2 style={{ fontFamily: 'Lora', color: '#F7B42C', marginBottom: '1rem', fontSize: '2rem' }}>SIA</h2>
+          <div style={{ color: '#F7B42C', fontSize: '0.65rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1.5rem' }}>Care Creates Insights</div>
+          <p style={{ color: 'rgba(245, 245, 245, 0.6)', lineHeight: '1.8', fontSize: '0.95rem', maxWidth: '300px' }}>
+            An ecosystem where care meets standards, insight creates products, and success fuels charity.
           </p>
         </div>
 
@@ -27,10 +28,12 @@ export const Footer = () => {
         <div>
           <h4 style={{ color: '#F7B42C', marginBottom: '2rem', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Navigation</h4>
           <ul style={{ listStyle: 'none', display: 'grid', gap: '1.25rem', fontSize: '1rem' }}>
-            <li><Link href="/about" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Story</Link></li>
-            <li><Link href="/ecosystem" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Ecosystem</Link></li>
-            <li><Link href="/get-involved" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Donate</Link></li>
-            <li><Link href="/get-involved" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Contact</Link></li>
+            <li><Link href="/" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Home</Link></li>
+            <li><Link href="/about" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>About</Link></li>
+            <li><Link href="/services" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Services</Link></li>
+            <li><Link href="/events" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Events</Link></li>
+            <li><Link href="/resources" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Resources</Link></li>
+            <li><Link href="/contact" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Contact</Link></li>
           </ul>
         </div>
 
