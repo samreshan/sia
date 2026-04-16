@@ -1,18 +1,27 @@
 :root {
-  /* Colors - Awwwards Edition */
-  --canvas: #F5F5F5;
+  /* Warm Structuralism Palette */
+  --canvas: #FCFAF7;
   --surface: #FFFFFF;
-  --primary: #F7B42C; /* Sunflower Gold */
-  --secondary: #768E1F; /* Olive Stem */
-  --text: #323030;    /* Matte Charcoal */
-  --text-muted: #666666;
-  --border-subtle: rgba(50, 48, 48, 0.05);
+  --text: #1A1A1A;
+  --text-muted: #5F5F5F;
+  --brand-gold: #EBC351;
+  --brand-gold-muted: rgba(235, 195, 81, 0.1);
+  --border: rgba(26, 26, 26, 0.05);
+  --border-strong: rgba(26, 26, 26, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.5);
   
-  /* Spacing */
-  --section-gap: clamp(6rem, 12vw, 10rem);
+  /* Spacing & Fluid Grids */
+  --section-gap: clamp(6rem, 12vw, 18rem);
   --container-max: 1400px;
-  --radius-outer: 2.5rem;
-  --radius-inner: calc(2.5rem - 0.75rem);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  --transition-fluid: all 0.6s var(--ease-out-expo);
 }
 
 * {
@@ -27,16 +36,48 @@ body {
   overflow-x: hidden;
   background-color: var(--canvas);
   color: var(--text);
-  font-family: 'Nunito', system-ui, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mesh Gradient Background */
+.mesh-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--canvas);
+}
+
+.mesh-gradient::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 30%, var(--brand-gold-muted) 0%, transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(235, 195, 81, 0.05) 0%, transparent 40%);
+  filter: blur(100px);
+  animation: meshRotate 60s infinite linear;
+  opacity: 0.6;
+}
+
+@keyframes meshRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Lora', serif;
   color: var(--text);
-  font-weight: 600;
-  line-height: 1.1;
+  font-weight: 500;
+  line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
@@ -55,62 +96,179 @@ button {
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 4rem;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1.5rem;
-  }
+  padding: 0 clamp(1.5rem, 5vw, 6rem);
 }
 
 /* Base Typography Scale */
-h1 { font-size: clamp(3rem, 8vw, 6rem); }
-h2 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h1 { font-size: clamp(3.5rem, 10vw, 9rem); }
+h2 { font-size: clamp(2.5rem, 7vw, 5rem); }
+h3 { font-size: clamp(1.75rem, 4vw, 3rem); }
 
-/* Double-Bezel (Doppelrand) Architecture */
+/* Glassmorphism & Double-Bezel */
+.glass-surface {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
 .bezel-outer {
-  background: rgba(50, 48, 48, 0.03);
-  padding: 0.75rem;
-  border-radius: var(--radius-outer);
-  border: 1px solid var(--border-subtle);
-  transition: all 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  padding: 1px;
+  background: linear-gradient(135deg, var(--glass-border), transparent);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
 }
 
 .bezel-inner {
   background: var(--surface);
+  border-radius: calc(var(--radius-lg) - 1px);
   padding: 2.5rem;
-  border-radius: var(--radius-inner);
-  box-shadow: 0 10px 40px -10px rgba(50, 48, 48, 0.08), 
-              inset 0 1px 1px rgba(255, 255, 255, 0.5);
   height: 100%;
+  transition: all 0.6s var(--ease-out-expo);
+  border: 1px solid transparent;
+}
+
+.bezel-outer:hover .bezel-inner {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -15px rgba(26, 26, 26, 0.08);
+  border-color: var(--brand-gold-muted);
+}
+
+/* Fluid Grid Utilities */
+.fluid-grid {
+  display: grid;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.section-header {
+  margin-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.section-label {
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  margin-bottom: 2rem;
+  color: var(--brand-gold);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-label::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background-color: var(--brand-gold);
+}
+
+.section-title {
+  line-height: 1;
+  max-width: 800px;
+  letter-spacing: -0.03em;
+}
+
+.section-title span {
+  color: var(--text-muted);
+}
+
+.section-accent {
+  background-color: var(--surface);
+}
+
+/* Premium Button */
+.btn-primary {
+  background-color: var(--text);
+  color: var(--canvas);
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: var(--transition-fluid);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary.gold {
+  background-color: var(--brand-gold);
+  color: var(--text);
+}
+
+.btn-outline {
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: var(--transition-fluid);
+}
+
+.btn-outline:hover {
+  background-color: var(--text);
+  color: var(--canvas);
 }
 
 /* Motion Utilities */
-.mask-up {
-  overflow: hidden;
+.reveal-fade {
+  opacity: 0;
+  animation: revealUp 1.2s forwards var(--ease-out-expo);
 }
 
-.mask-content {
-  display: block;
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(20px) blur(5px); }
+  to { opacity: 1; transform: translateY(0) blur(0); }
 }
 
-/* Responsive Overrides */
+/* Bento Grid System */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2.5rem;
+}
+
+.bento-item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bento-wide {
+  grid-column: span 3;
+}
+
+.bento-narrow {
+  grid-column: span 2;
+}
+
+@media (max-width: 1024px) {
+  .bento-wide, .bento-narrow {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-wide, .bento-narrow {
+    grid-column: span 1;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --section-gap: 5rem;
   }
-  
-  .bezel-outer {
-    padding: 0.5rem;
-    border-radius: 1.5rem;
-  }
-  
-  .bezel-inner {
-    padding: 1.5rem;
-    border-radius: calc(1.5rem - 0.4rem);
-  }
 }
+
+

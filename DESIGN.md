@@ -1,44 +1,43 @@
-# Design System: Sunflower Institute for Autism (SIA) — Awwwards Edition
+# Design System: Sunflower Institute for Autism (SIA) — Warm Structuralism
 
 ## 1. Visual Theme & Atmosphere
-**Vibe: Soft Structuralism.** A high-end agency aesthetic characterized by massive whitespace, bold typographic control, and tactile "machined" components. The atmosphere is unhurried and professional—a digital sanctuary built with silver-grey neutrals and vibrant sunflower accents. 
+**Vibe: Warm Structuralism.** A fusion of clinical precision and compassionate warmth. It prioritizes clarity and architectural structure but softens the edges with a subtle, organic warmth. The atmosphere feels like a high-end, sun-drenched research institute—trustworthy, premium, and human-centric.
 
-- **Density**: 4 (Airy, gallery-like)
-- **Variance**: 8 (High asymmetry, bento masonry)
-- **Motion**: 7 (Cinematic choreography, spring-based mass)
+- **Density**: 4 (Balanced, airy but informative)
+- **Variance**: 6 (Asymmetric grid refinements, structured but fluid)
+- **Motion**: 5 (Fluid CSS transitions, hardware-accelerated blurs)
 
 ## 2. Color Palette & Roles
-- **Silver Grey** (#F5F5F5) — Primary canvas background. Neutral, modern, industrial.
-- **Pure Surface** (#FFFFFF) — Inner core fills for the Double-Bezel architecture.
-- **Sunflower Gold** (#F7B42C) — Primary CTA and emotional highlight color. Used for vibrant focal points.
-- **Olive Stem** (#768E1F) — Secondary brand color. Used for professional authority and clinical metadata.
-- **Matte Charcoal** (#323030) — Primary text and heading depth.
-- **Surface Hairline** (rgba(50, 48, 48, 0.05)) — Microscopic borders and subtle dividers.
+- **Warm Canvas** (#FCFAF7) — Primary background. A soft, off-white cream that reduces eye strain and implies human warmth.
+- **Deep Charcoal** (#1A1A1A) — Primary text and heading depth. Softer than pure black.
+- **Sunflower Gold** (#EBC351) — Muted brand accent. Used sparingly for highlights, icons, and primary CTAs.
+- **Glass Surface** (rgba(255, 255, 255, 0.4)) — Translucent layers for cards and navigation.
+- **Muted Edge** (rgba(26, 26, 26, 0.05)) — Soft dividers and subtle borders.
 
 ## 3. Typography Rules
-- **Display (Headings):** **Lora** — Track-tight (-0.03em), weight-driven hierarchy. Used for massive editorial headlines and emotional hooks.
-- **Body:** **Nunito** — Relaxed leading (1.7), max 65ch width. Neutral gray color for readability.
-- **Mono:** **JetBrains Mono** — For timestamps, metadata, and high-density stats.
+- **Display (Headings):** **Lora** — Formal, academic serif. Used for primary headlines and section titles.
+- **Body & Functional:** **Inter** — High-legibility sans-serif for content and clarity.
+- **Clinical/Metadata:** **JetBrains Mono** — For stats, categorizations, and technical labels.
 
-## 4. Component Stylings — The Double-Bezel (Doppelrand)
-Every major container must look like machined hardware using nested enclosures:
-- **Outer Shell:** Subtle background (bg-black/5), large radius (rounded-3xl), minimal padding.
-- **Inner Core:** Pure white background, high-depth ambient shadow, smaller concentric radius.
+## 4. Layout Principles: The Fluid Grid
+- **Glassmorphism:** Use `backdrop-filter: blur(20px)` on floating elements to create depth.
+- **Double-Bezel Architecture:** Major cards use a nested structure (outer ring + inner core) to simulate physical mass.
+- **Soft Radii:** Transition from hard 0px to a refined 8px - 14px radius where appropriate for a "human" feel.
+- **Asymmetric Balance:** Use whitespace and offset grids to break the "template" feel.
 
-## 5. Layout Principles
-- **Asymmetrical Editorial Split:** Headlines on one side, floating layered imagery on the other.
-- **Bento Masonry:** A CSS Grid of varying card sizes to communicate hierarchy and ecosystem complexity.
-- **Macro-Whitespace:** py-40 (10rem) section gaps to allow the design to breathe heavily.
-- **Inline Image Typography:** Small, rounded images embedded directly within headlines acting as visual punctuation.
+## 5. Hero Philosophy
+- **Atmospheric Depth:** Backgrounds should feature subtle mesh gradients or cinematic slow-motion loops with warm overlays.
+- **Typographic Tension:** Massive headines paired with wide tracking and brand-yellow accents.
 
 ## 6. Motion & Interaction
-- **Spring Physics:** Stiffness: 100, Damping: 20 for a premium, weighted feel.
-- **Staggered Mask Reveal:** Sections do not simply fade; they slide up and blur-resolve in a cascade.
-- **Magnetic CTAs:** Buttons scale physically on hover and active states (-1px translate).
+- **Cubic Bezier:** All transitions use `cubic-bezier(0.32, 0.72, 0, 1)`.
+- **Haptic Feedback:** Buttons scale slightly (0.98) on click.
+- **Staggered Reveals:** Content elements cascade into view on scroll.
 
 ## 7. Anti-Patterns (Banned)
-- **No Inter:** Exclusively use Lora/Nunito.
-- **No Centered Heros:** Force asymmetric split-screen balance.
-- **No 3-column equal grids:** Use Bento or Z-axis staggered layouts.
-- **No Pure Black (#000000):** Use Matte Charcoal.
-- **No emojis or generic icons.**
+- **No Pure Black (#000000)**
+- **No Generic Blue/Purple AI Glows**
+- **No 3-Column Equal Card Grids** (Use asymmetric or horizontal scroll)
+- **No "Elevate" or "Next-Gen" Clichés.**
+
+

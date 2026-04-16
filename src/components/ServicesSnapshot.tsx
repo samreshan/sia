@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, BookOpen, ArrowUpRight } from 'lucide-react';
+import { Users, BookOpen, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
 export const ServicesSnapshot = () => {
@@ -11,93 +11,102 @@ export const ServicesSnapshot = () => {
       title: 'For Families',
       subtitle: 'Guidance and support designed for your family’s unique journey.',
       icon: Users,
-      items: ['Assessments', 'Therapy & Intervention', 'Parent & Family Support'],
-      href: '/services/families',
-      color: '#F7B42C'
+      items: ['Diagnostic Assessments', 'Evidence-based Therapy', 'Parent Training'],
+      href: '/services/families'
     },
     {
       title: 'For Professionals',
       subtitle: 'Building a standardized, inclusive infrastructure for Nepal.',
       icon: BookOpen,
-      items: ['Training Programs', 'Inclusion Support', 'Workshops & Awareness'],
-      href: '/services/professionals',
-      color: '#768E1F'
+      items: ['Professional Training', 'Institutional Support', 'Clinical Consulting'],
+      href: '/services/professionals'
     }
   ];
 
   return (
-    <section style={{ padding: 'var(--section-gap) 2rem', backgroundColor: '#FFFFFF' }}>
+    <section style={{ padding: 'var(--section-gap) 0' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1.5rem' }}>Support for every stage of the journey</h2>
-          <p style={{ color: '#666', fontSize: '1.2rem', maxWidth: '750px', margin: '0 auto 2rem' }}>
-            Every individual and every family has different needs. Our services are designed to meet you where you are — and guide you forward with clarity and structure.
-          </p>
-          <p style={{ fontSize: '1.05rem', color: '#777', fontStyle: 'italic' }}>
-            Whether you are starting your journey or building on experience, we provide the structure and support to move forward.
-          </p>
+        <div className="section-header" style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+          gap: '4rem', 
+          alignItems: 'end' 
+        }}>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            <div className="section-label">Core Focus</div>
+            <h2 className="section-title">
+              Solutions for <br />
+              <span>Every Stakeholder.</span>
+            </h2>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
+          >
+            <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: '1.7', maxWidth: '550px' }}>
+              Our clinical protocols are built on clarity and rigor. We offer specialized pathways for families seeking direct care and professionals seeking institutional support.
+            </p>
+          </motion.div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', 
+          gap: '3rem' 
+        }}>
           {categories.map((cat, i) => (
             <motion.div
               key={cat.title}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.2, duration: 1.2 }}
+              transition={{ delay: i * 0.2, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="bezel-outer"
             >
               <div className="bezel-inner" style={{ padding: '4rem' }}>
                 <div style={{ 
-                  width: '60px', 
-                  height: '60px', 
-                  borderRadius: '15px', 
-                  backgroundColor: `${cat.color}15`, 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center',
-                  color: cat.color,
-                  marginBottom: '2.5rem'
+                  color: 'var(--brand-gold)', 
+                  marginBottom: '3rem',
+                  width: '64px',
+                  height: '64px',
+                  borderRadius: '16px',
+                  backgroundColor: 'var(--brand-gold-muted)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}>
-                  <cat.icon size={32} />
+                  <cat.icon size={32} strokeWidth={1.5} />
                 </div>
 
-                <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{cat.title}</h3>
-                <p style={{ color: '#666', fontSize: '1.1rem', marginBottom: '2.5rem' }}>{cat.subtitle}</p>
+                <h3 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', fontWeight: 500 }}>{cat.title}</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '3.5rem', lineHeight: '1.6' }}>{cat.subtitle}</p>
 
-                <ul style={{ listStyle: 'none', padding: 0, marginBottom: '3rem', display: 'grid', gap: '1rem' }}>
+                <ul style={{ listStyle: 'none', padding: 0, marginBottom: '5rem', display: 'grid', gap: '1.5rem' }}>
                   {cat.items.map(item => (
                     <li key={item} style={{ 
                       display: 'flex', 
                       alignItems: 'center', 
-                      gap: '0.75rem',
+                      gap: '1.25rem',
                       fontSize: '1rem',
-                      color: '#333',
-                      fontWeight: 600
+                      color: 'var(--text)',
+                      fontWeight: 500
                     }}>
-                      <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: cat.color }} />
+                      <CheckCircle2 size={18} style={{ color: 'var(--brand-gold)' }} />
                       {item}
                     </li>
                   ))}
                 </ul>
 
                 <Link href={cat.href}>
-                  <button style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.75rem',
-                    color: '#323030',
-                    fontWeight: 800,
-                    fontSize: '0.9rem',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.1em',
-                    padding: '1rem 2rem',
-                    borderRadius: '100px',
-                    border: '1px solid #323030',
-                    transition: 'all 0.3s ease'
-                  }}>
-                    View All Services <ArrowUpRight size={18} />
+                  <button className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                     Initiate Pathway <ArrowRight size={18} />
                   </button>
                 </Link>
               </div>
@@ -105,13 +114,8 @@ export const ServicesSnapshot = () => {
           ))}
         </div>
       </div>
-      <style jsx>{`
-        @media (max-width: 968px) {
-          .container > div:last-child {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };
+
+

@@ -3,16 +3,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Cpu, ShoppingBag, TrendingUp, Sun, ArrowRight } from 'lucide-react';
-
 import Link from 'next/link';
 
 const pillars = [
   {
-    title: 'Sunflower Institute',
-    subtitle: 'Clinical Infrastructure',
+    title: 'SIA Clinical',
+    subtitle: 'Clinical Research',
     desc: 'Assessments, therapy, training, and direct support for individuals, families, and organisations.',
     icon: Heart,
-    size: 'large',
     href: '/services'
   },
   {
@@ -20,23 +18,20 @@ const pillars = [
     subtitle: 'Digital Intelligence',
     desc: 'Digital tools and platforms designed to improve care delivery, tracking, and accessibility.',
     icon: Cpu,
-    size: 'large',
     href: '/pillars/rxpin'
   },
   {
-    title: 'Sunflower Petals',
+    title: 'Petals',
     subtitle: 'Therapeutic Trade',
     desc: 'Practical physical resources — including sensory tools, learning materials, and support kits.',
     icon: ShoppingBag,
-    size: 'small',
     href: '/pillars/sunflower-petals'
   },
   {
-    title: 'Equity Partners',
-    subtitle: 'Strategic Capital',
+    title: 'Strategic Capital',
+    subtitle: 'Equity Partners',
     desc: 'Structured funding and partnerships that ensure sustainability and expansion.',
     icon: TrendingUp,
-    size: 'small',
     href: '/pillars/equity-partners'
   },
   {
@@ -44,82 +39,71 @@ const pillars = [
     subtitle: 'Social Infrastructure',
     desc: 'Programs that ensure support reaches families who may not have the financial means to access care.',
     icon: Sun,
-    size: 'small',
     href: '/pillars/golden-foundation'
   }
 ];
 
 export const EcosystemGrid = () => {
   return (
-    <section style={{ padding: 'var(--section-gap) 2rem', backgroundColor: 'var(--canvas)' }}>
+    <section style={{ padding: 'var(--section-gap) 0', position: 'relative' }}>
       <div className="container">
-        <div style={{ marginBottom: '6rem' }}>
-          <div style={{ 
-            color: '#768E1F', 
-            fontWeight: 800, 
-            fontSize: '0.8rem', 
-            textTransform: 'uppercase', 
-            letterSpacing: '0.2em',
-            marginBottom: '1.5rem'
-          }}>
-            The Ecosystem
-          </div>
-          <h2 style={{ maxWidth: '800px', lineHeight: '1.1', marginBottom: '2.5rem' }}>
-            More than care — <br /> 
-            <span style={{ color: '#666' }}>a complete ecosystem.</span>
-          </h2>
-          <p style={{ fontSize: '1.25rem', color: '#555', lineHeight: '1.8', maxWidth: '750px', marginBottom: '2rem' }}>
-            Most systems focus on one part of the journey. We built something different. Sunflower operates as a connected ecosystem — where real-life care generates insight, insight leads to better tools and systems, and success is reinvested to support more families.
-          </p>
-          <p style={{ fontSize: '1.05rem', color: '#777', fontStyle: 'italic' }}>
-            Each part strengthens the other — creating a system that is consistent, scalable, and built to last.
-          </p>
+        <div className="section-header" style={{ 
+          display: 'grid', 
+          gridTemplateColumns: '1.2fr 1fr', 
+          gap: 'clamp(2rem, 5vw, 6rem)', 
+          alignItems: 'end' 
+        }}>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            <div className="section-label">The Ecosystem</div>
+            <h2 className="section-title">
+              Built for <br />
+              <span>Long-term Impact.</span>
+            </h2>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
+          >
+            <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: '1.7', maxWidth: '550px' }}>
+              Unlike traditional fragmented models, Sunflower operates as a connected ecosystem where clinical excellence generates insight, leading to better resources for all.
+            </p>
+          </motion.div>
         </div>
         
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(12, 1fr)', 
-          gridAutoRows: 'minmax(200px, auto)',
-          gap: '1.5rem' 
-        }}>
+        <div className="bento-grid">
           {pillars.map((p, i) => {
-            let gridSpacing = p.size === 'large' ? 'span 6' : 'span 4';
-            
+            const isFirstRow = i < 2;
             return (
-              <Link href={p.href} key={p.title} style={{ gridColumn: gridSpacing, textDecoration: 'none' }}>
+              <Link 
+                href={p.href} 
+                key={p.title} 
+                className={`bento-item ${isFirstRow ? 'bento-wide' : 'bento-narrow'}`}
+              >
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ 
-                    delay: i * 0.1, 
-                    duration: 1.2, 
-                    ease: [0.32, 0.72, 0, 1] 
-                  }}
+                  transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                   className="bezel-outer"
-                  style={{ 
-                    height: '100%',
-                    cursor: 'pointer'
-                  } as any}
+                  style={{ height: '100%' }}
                 >
-                  <div className="bezel-inner" style={{ 
-                    height: '100%', 
-                    display: 'flex', 
-                    flexDirection: 'column', 
-                    gap: '2rem',
-                    position: 'relative',
-                    overflow: 'hidden'
-                  }}>
+                  <div className="bezel-inner" style={{ display: 'flex', flexDirection: 'column', gap: '3rem', height: '100%' }}>
                     <div style={{ 
-                      width: '64px', 
-                      height: '64px', 
-                      borderRadius: '20px', 
-                      backgroundColor: 'rgba(50, 48, 48, 0.03)', 
+                      width: '60px', 
+                      height: '60px', 
+                      borderRadius: '12px', 
+                      backgroundColor: 'var(--brand-gold-muted)', 
                       display: 'flex', 
                       alignItems: 'center', 
                       justifyContent: 'center',
-                      color: '#323030',
-                      border: '1px solid rgba(0,0,0,0.05)'
+                      color: 'var(--brand-gold)'
                     }}>
                       <p.icon size={28} strokeWidth={1.5} />
                     </div>
@@ -127,16 +111,16 @@ export const EcosystemGrid = () => {
                     <div>
                       <div style={{ 
                         fontSize: '0.65rem', 
-                        fontWeight: 900, 
+                        fontWeight: 800, 
                         textTransform: 'uppercase', 
-                        letterSpacing: '0.15em', 
-                        color: '#F7B42C', 
-                        marginBottom: '0.5rem' 
+                        letterSpacing: '0.2em', 
+                        color: 'var(--brand-gold)', 
+                        marginBottom: '1rem' 
                       }}>
                         {p.subtitle}
                       </div>
-                      <h3 style={{ fontSize: p.size === 'large' ? '2.5rem' : '1.75rem', marginBottom: '1rem' }}>{p.title}</h3>
-                      <p style={{ fontSize: '1rem', color: '#666', lineHeight: '1.6', maxWidth: '400px' }}>{p.desc}</p>
+                      <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem', fontWeight: 500 }}>{p.title}</h3>
+                      <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>{p.desc}</p>
                     </div>
 
                     <div style={{ 
@@ -144,26 +128,14 @@ export const EcosystemGrid = () => {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '0.75rem',
-                      color: '#323030',
-                      fontWeight: 800,
-                      fontSize: '0.75rem',
+                      fontSize: '0.7rem',
+                      fontWeight: 900,
                       textTransform: 'uppercase',
-                      letterSpacing: '0.1em'
+                      letterSpacing: '0.2em',
+                      color: 'var(--text)'
                     }}>
-                      Learn More <ArrowRight size={14} />
+                      Explore Module <ArrowRight size={14} style={{ color: 'var(--brand-gold)' }} />
                     </div>
-                    
-                    {/* Subtle Background Pattern */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '-2rem',
-                      right: '-2rem',
-                      width: '150px',
-                      height: '150px',
-                      backgroundColor: 'rgba(247, 180, 44, 0.02)',
-                      borderRadius: '50%',
-                      zIndex: -1
-                    }} />
                   </div>
                 </motion.div>
               </Link>
@@ -171,17 +143,8 @@ export const EcosystemGrid = () => {
           })}
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 968px) {
-          div {
-            grid-template-columns: 1fr !important;
-          }
-          .bezel-outer {
-            grid-column: span 1 !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };
+
+

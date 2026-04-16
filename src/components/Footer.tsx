@@ -2,111 +2,119 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Logo } from './Logo';
 
 export const Footer = () => {
   return (
     <footer style={{ 
-      backgroundColor: '#323030', 
-      padding: '8rem 2rem 4rem', 
-      color: '#F5F5F5'
+      backgroundColor: 'rgba(252, 250, 247, 0.4)', 
+      backdropFilter: 'blur(20px)',
+      padding: 'clamp(6rem, 12vw, 12rem) 0 5rem', 
+      color: 'var(--text)',
+      borderTop: '1px solid var(--border)'
     }}>
       <div className="container" style={{ 
         display: 'grid', 
-        gridTemplateColumns: '1.5fr 1fr 1fr 1.5fr', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
         gap: '6rem' 
       }}>
         {/* Brand & Vision */}
-        <div>
-          <h2 style={{ fontFamily: 'Lora', color: '#F7B42C', marginBottom: '1rem', fontSize: '2rem' }}>SIA</h2>
-          <div style={{ color: '#F7B42C', fontSize: '0.65rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1.5rem' }}>Care Creates Insights</div>
-          <p style={{ color: 'rgba(245, 245, 245, 0.6)', lineHeight: '1.8', fontSize: '0.95rem', maxWidth: '300px' }}>
-            An ecosystem where care meets standards, insight creates products, and success fuels charity.
+        <div style={{ gridColumn: 'span 2' }}>
+          <Logo />
+          <div style={{ 
+            color: 'var(--brand-gold)', 
+            fontSize: '0.65rem', 
+            fontWeight: 800, 
+            textTransform: 'uppercase', 
+            letterSpacing: '0.4em', 
+            marginTop: '2.5rem',
+            marginBottom: '1.5rem' 
+          }}>
+            Institutional Excellence / Nepal
+          </div>
+          <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.05rem', maxWidth: '450px' }}>
+            Establishing a high-standard clinical ecosystem for autism care through research, advocacy, and standardized methodologies across the Himalayas.
           </p>
         </div>
 
-        {/* Quick Links */}
+        {/* Global Access */}
         <div>
-          <h4 style={{ color: '#F7B42C', marginBottom: '2rem', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Navigation</h4>
-          <ul style={{ listStyle: 'none', display: 'grid', gap: '1.25rem', fontSize: '1rem' }}>
-            <li><Link href="/" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Home</Link></li>
-            <li><Link href="/about" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>About</Link></li>
-            <li><Link href="/services" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Services</Link></li>
-            <li><Link href="/events" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Events</Link></li>
-            <li><Link href="/resources" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Resources</Link></li>
-            <li><Link href="/contact" style={{ color: 'rgba(245, 245, 245, 0.8)' }}>Contact</Link></li>
+          <h4 style={{ color: 'var(--text)', marginBottom: '2.5rem', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.3em', fontWeight: 800 }}>Exploration</h4>
+          <ul style={{ listStyle: 'none', display: 'grid', gap: '1.25rem', fontSize: '0.9rem' }}>
+            <li><Link href="/about" style={{ color: 'var(--text-muted)' }}>Institutional Story</Link></li>
+            <li><Link href="/services" style={{ color: 'var(--text-muted)' }}>Service Directory</Link></li>
+            <li><Link href="/events" style={{ color: 'var(--text-muted)' }}>Public Engagements</Link></li>
+            <li><Link href="/resources" style={{ color: 'var(--text-muted)' }}>Academic Resources</Link></li>
           </ul>
         </div>
 
-        {/* Contact Info */}
+        {/* Support */}
         <div>
-          <h4 style={{ color: '#F7B42C', marginBottom: '2rem', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Contact</h4>
-          <p style={{ fontSize: '1rem', color: 'rgba(245, 245, 245, 0.8)', lineHeight: '2' }}>
-            Kathmandu, Nepal <br />
-            info@instituteforautism.org <br />
+          <h4 style={{ color: 'var(--text)', marginBottom: '2.5rem', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.3em', fontWeight: 800 }}>Support</h4>
+          <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '2.2' }}>
+            Kathmandu HQ <br />
+            <span style={{ color: 'var(--brand-gold)' }}>info@instituteforautism.org</span> <br />
             +977-1-1234567
           </p>
         </div>
 
-        {/* Newsletter */}
-        <div>
-          <h4 style={{ color: '#F7B42C', marginBottom: '2rem', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Resources</h4>
-          <p style={{ fontSize: '0.9rem', color: 'rgba(245, 245, 245, 0.6)', marginBottom: '2rem' }}>Receive gentle updates and research insights.</p>
-          <div style={{ display: 'flex', gap: '0.5rem', position: 'relative' }}>
+        {/* Correspondence */}
+        <div style={{ gridColumn: 'span 2' }}>
+          <h4 style={{ color: 'var(--text)', marginBottom: '2.5rem', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.3em', fontWeight: 800 }}>Correspondence</h4>
+          <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '2.5rem', lineHeight: '1.6', maxWidth: '400px' }}>
+            Subscribe to our clinical digest for institutional updates and research highlights.
+          </p>
+          <div style={{ display: 'flex', gap: '0', borderBottom: '1px solid var(--border-strong)', maxWidth: '400px' }}>
             <input 
               type="email" 
-              placeholder="Your email" 
+              placeholder="Official email address" 
               style={{ 
-                padding: '1.25rem 1.5rem', 
-                borderRadius: '100px', 
-                border: '1px solid rgba(245, 245, 245, 0.1)',
-                backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                padding: '1.5rem 0', 
+                border: 'none',
+                backgroundColor: 'transparent',
                 width: '100%',
-                fontSize: '0.9rem',
-                color: 'white'
+                fontSize: '0.95rem',
+                color: 'var(--text)',
+                outline: 'none'
               }} 
             />
             <button style={{ 
-              backgroundColor: '#F7B42C', 
-              color: '#323030', 
-              padding: '1rem 2rem', 
-              borderRadius: '100px',
-              fontWeight: 800,
-              fontSize: '0.8rem',
-              position: 'absolute',
-              right: '4px',
-              top: '4px',
-              bottom: '4px'
+              backgroundColor: 'transparent', 
+              color: 'var(--brand-gold)', 
+              padding: '1rem 0 1rem 1rem', 
+              fontWeight: 900,
+              fontSize: '0.7rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.3em'
             }}>
-              Join
+              Connect
             </button>
           </div>
         </div>
       </div>
       
       <div className="container" style={{ 
-        marginTop: '8rem', 
+        marginTop: 'clamp(5rem, 10vw, 10rem)', 
         paddingTop: '3rem', 
-        borderTop: '1px solid rgba(245, 245, 245, 0.05)',
+        borderTop: '1px solid var(--border)',
         display: 'flex',
+        flexWrap: 'wrap',
+        gap: '2rem',
         justifyContent: 'space-between',
-        fontSize: '0.85rem',
-        color: 'rgba(245, 245, 245, 0.3)'
+        fontSize: '0.7rem',
+        color: 'var(--text-muted)',
+        fontWeight: 600,
+        textTransform: 'uppercase',
+        letterSpacing: '0.2em'
       }}>
-        <p>© 2026 Sunflower Institute for Autism. All rights reserved.</p>
-        <div style={{ display: 'flex', gap: '2rem' }}>
-          <span>Privacy Policy</span>
-          <span>Terms of Service</span>
+        <p>© 2026 Sunflower Institute for Autism. Nepali Reg no. 1294102 / Clinically Certified.</p>
+        <div style={{ display: 'flex', gap: '3rem' }}>
+          <span className="nav-hover">Privacy Ethics</span>
+          <span className="nav-hover">Governance</span>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 968px) {
-          .container > div {
-            grid-template-columns: 1fr !important;
-            gap: 4rem !important;
-          }
-        }
-      `}</style>
     </footer>
   );
 };
+
+
